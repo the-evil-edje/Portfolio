@@ -1,0 +1,11 @@
+.logo {
+  background-image: url("../img/logo.png");
+  height: 100px;
+  width: 100px;
+  background-size: contain;
+}
+
+#black{
+  background-color: black;
+  font-size: 50px;
+}
