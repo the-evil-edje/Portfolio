@@ -9,3 +9,15 @@
   background-color: black;
   font-size: 50px;
 }
+
+#foto-games{
+  width: 49%;
+}
+
+#game-platforms{
+  height: 55px;
+}
+
+#button-game{
+  width: 49%;
+}
