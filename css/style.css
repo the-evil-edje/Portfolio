@@ -5,6 +5,10 @@
   background-size: contain;
 }
 
+#Project-image{
+  width: 348px;
+}
+
 #black{
   background-color: black;
   font-size: 50px;
@@ -20,4 +24,27 @@
 
 #button-game{
   width: 49%;
+}
+
+#button-sport{
+  width: 100%;
+}
+
+footer {
+	position:fixed;
+	left: 0px;
+	bottom: 0px;
+	height:40px;
+	width:100%;
+
+	color: white;
+	text-align: center;
+}
+
+#footer-text {
+	margin: 0 auto;
+	color: #800000;
+	font-size: 13px;
+	font-weight: bold;
+	text-decoration: none;
 }

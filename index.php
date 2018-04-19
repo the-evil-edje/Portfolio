@@ -1,10 +1,14 @@
 <!doctype html>
+<?php
+		require 'inc/database-connection.php';
+	?>
 <html>
 	<head>
 		<meta charset="UTF-8">
 		<meta name="description" content="Portfolio">
 		<meta name="keywords" content="HTML,CSS,php">
 		<meta name="author" content="Eddie Beelen">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 
@@ -19,8 +23,75 @@
 		<div class="jumbotron">
 			<div class="container">
 				<h1 class="display-4">Welcome</h1>
-					<p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+					<p class="lead">On this website i show some projects that I have made. If you are interested you can contact me. On this page I show my best projects that </p>
 			</div>
 		</div>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-4 mb-4">
+				<?php
+				$sql = "SELECT TITLE, DESCRIPTION, IMAGE, CATEGORY
+					FROM projects
+					WHERE TITLE = 'Mystery Number'";
+
+					$result = mysqli_query($conn, $sql);
+
+					if (mysqli_num_rows($result) > 0) {
+						// output data of each row
+						while($row = mysqli_fetch_assoc($result)) {
+							echo '
+								<div class="card">
+									<div class="card-body">
+										<div class="card-title">
+											<h4> '.$row["TITLE"].' </h4>
+										</div>
+										<p>
+											'.$row["DESCRIPTION"].'
+										</p>
+										<img src="img/'.$row["IMAGE"].'"  class="img-fluid" id="Project-image" alt="Responsive image">
+									</div>
+								</div>
+
+							';
+						}
+					}
+					else {echo "0 results";}
+					 ?>
+					</div>
+					<div class="col-md-4 mb-4">
+					<?php
+					$sql = "SELECT TITLE, DESCRIPTION, IMAGE, CATEGORY
+						FROM projects
+						WHERE TITLE = 'Vault'";
+
+						$result = mysqli_query($conn, $sql);
+
+						if (mysqli_num_rows($result) > 0) {
+							// output data of each row
+							while($row = mysqli_fetch_assoc($result)) {
+								echo '
+									<div class="card">
+										<div class="card-body">
+											<div class="card-title">
+												<h4> '.$row["TITLE"].' </h4>
+											</div>
+											<p>
+												'.$row["DESCRIPTION"].'
+											</p>
+											<img src="img/'.$row["IMAGE"].'"  class="img-fluid" id="Project-image" alt="Responsive image">
+										</div>
+									</div>
+
+								';
+							}
+						}
+						else {echo "0 results";}
+						 ?>
+						</div>
+				</div>
+			</div>
+		<?php
+		include("inc/footer.php")
+		?>
   </body>
 </html>
