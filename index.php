@@ -28,7 +28,7 @@
 		</div>
 		<div class="container">
 			<div class="row">
-				<div class="col-md-4 mb-4">
+				<div class="col-md-6 mb-4">
 				<?php
 				$sql = "SELECT TITLE, DESCRIPTION, IMAGE, CATEGORY
 					FROM projects
@@ -58,7 +58,7 @@
 					else {echo "0 results";}
 					 ?>
 					</div>
-					<div class="col-md-4 mb-4">
+					<div class="col-md-6 mb-4">
 					<?php
 					$sql = "SELECT TITLE, DESCRIPTION, IMAGE, CATEGORY
 						FROM projects
@@ -87,7 +87,24 @@
 						}
 						else {echo "0 results";}
 						 ?>
+					</div>
+					<div class="row">
+						<div class="col-md-12 mb-4">
+							<div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+							  <div class="carousel-inner" id="slide">
+							    <div class="carousel-item active">
+							      <img class="d-block w-100" src="img/DCheroes.png" alt="First slide">
+							    </div>
+							    <div class="carousel-item">
+							      <img class="d-block w-100" src="img/Dragrace.png" alt="Second slide">
+							    </div>
+							    <div class="carousel-item">
+							      <img class="d-block w-100" src="img/GameWorld.png" alt="Third slide">
+							    </div>
+							  </div>
+							</div>
 						</div>
+		      </div>
 				</div>
 			</div>
 		<?php

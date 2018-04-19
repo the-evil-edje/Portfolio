@@ -12,60 +12,59 @@
     <link rel="stylesheet" href="css/style.css">
 		<title>Contact</title>
 	</head>
-  <body>
+  <body class="contact">
     <?php
         require 'inc/Header.php';
     ?>
-    <div class="jumbotron">
-      <div class="container">
-        <h1 class="display-4">Contact</h1>
-          <p class="lead">here you can find some information how to contact me.</p>
-      </div>
-    </div>
-    <div class="container">
-      <div class="row">
-        <div class="col-md-6 mb-4">
-          <div class="card">
-            <div class="card-body">
-              <div class="card-title">
-                <h4>Personal contact</h4>
-              </div>
-              <p>
-                Name: Eddie Beelen<br>
-                Phone number: +31 6 38752857<br>
-                Email adress: Eddie.Beelen@gmail.com
-              </p>
-              <a href="https://www.instagram.com/eddiebeelen"><img src="img/instagram.jpg" id="game-platforms" class="img-fluid" alt="Responsive image"></a>
-              <a href="https://www.facebook.com/eddie.beelen"><img src="img/facebook.jpg" id="game-platforms" class="img-fluid" alt="Responsive image"></a>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-6 mb-4">
-          <div class="card">
-            <div class="card-body">
-              <div class="card-title">
-                <h4>Streamer contact</h4>
-              </div>
-              <p>
-                Name: The Evil Edje<br>
-                Phone number: +31 6 38752857<br>
-                Email adress: The.evil.edje@gmail.com
-              </p>
-              <a href="https://www.instagram.com/the_evil_edje"><img src="img/instagram.jpg" id="game-platforms" class="img-fluid" alt="Responsive image"></a>
-              <a href="https://www.twitch.tv/theeviledje"><img src="img/twitch.jpg" id="game-platforms" class="img-fluid" alt="Responsive image"></a>
-              <a href="https://www.youtube.com/channel/UC_1E3nbOpwtBAs6-sqNZbog"><img src="img/youtube.png" id="game-platforms" class="img-fluid" alt="Responsive image"></a>
-            </div>
-          </div>
-        </div>
-				<div class="col-md-6 mb-4">
-          <div class="card">
-            <div class="card-body">
-							<iframe width="560" height="315" src="https://www.youtube.com/embed/MsXA2IhnFUU" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+		<div class="container">
+			<div class="col-md-5" id="formstyle">
+				 <div class="form-area bg-dark">
+						<form role="form" method="post" name="contact_form" action="contact-form-handler.php">
+								<br style="clear:both">
+								 <h3 style="margin-bottom: 25px; text-align: center;">Contact</h3>
+									<div class="form-group">
+									<input type="text" class="form-control" id="name" name="name" placeholder="Name" required>
+									</div>
+									<div class="form-group">
+									<input type="text" class="form-control" id="email" name="email" placeholder="Email" required>
+									</div>
+									<div class="form-group">
+									<input type="text" class="form-control" id="mobile" name="mobile" placeholder="Mobile Number" required>
+									</div>
+									<div class="form-group">
+									<input type="text" class="form-control" id="subject" name="subject" placeholder="Subject" required>
+									</div>
+									<div class="form-group">
+									<textarea class="form-control" type="textarea" id="message" name="message" placeholder="Message" maxlength="140" rows="7"></textarea>
+									 <span class="help-block"><p id="characterLeft" class="help-block ">You have reached the limit</p></span>
+									 </div>
+
+									<button type="submit" id="submit" name="submit" class="btn btn-light pull-right">Submit</button>
+							</form>
+						</div>
+					</div>
+				</div>
+
+				<script>
+													$(document).ready(function(){
+				    $('#characterLeft').text('140 characters left');
+				    $('#message').keydown(function () {
+				        var max = 140;
+				        var len = $(this).val().length;
+				        if (len >= max) {
+				            $('#characterLeft').text('You have reached the limit');
+				            $('#characterLeft').addClass('red');
+				            $('#btnSubmit').addClass('disabled');
+				        }
+				        else {
+				            var ch = max - len;
+				            $('#characterLeft').text(ch + ' characters left');
+				            $('#btnSubmit').removeClass('disabled');
+				            $('#characterLeft').removeClass('red');
+				        }
+				    });
+				});
+				</script>
 		<?php
 		include("inc/footer.php")
 		?>
